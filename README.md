@@ -1,1 +1,1 @@
-# shoping-cart
+# shopping-cart
