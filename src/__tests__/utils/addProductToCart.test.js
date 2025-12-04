@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import addProductToCart from "../addProductToCart";
-import products from "../dummyProducts";
+import addProductToCart from "../../utils/addProductToCart";
+import products from "../../utils/dummyProducts";
 
 vi.mock("../dummyProducts", () => ({
   default: [

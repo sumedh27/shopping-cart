@@ -1,6 +1,4 @@
-import products from "./dummyProducts";
-
-export default function addProductToCart(setter, id, quantity) {
+export default function addProductToCart(setter, products, id, quantity) {
   const product = products.find((product) => id === product.id);
   if (!product) return;
 
