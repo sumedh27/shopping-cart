@@ -15,10 +15,16 @@ export default function App() {
     deleteProduct(setCart, id);
   };
 
+  const handleClearCart = () => {
+    setCart([]);
+  };
+
   return (
     <>
       <Header cart={cart} />
-      <Outlet context={{ handleDeleteCart, handleAddToCart, cart }} />
+      <Outlet
+        context={{ handleClearCart, handleDeleteCart, handleAddToCart, cart }}
+      />
     </>
   );
 }

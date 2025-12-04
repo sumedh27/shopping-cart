@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 
 export default function Sidebar({ cart }) {
   return (
-    <div id="sidebar">
+    <header id="sidebar">
       <nav>
         <ul>
           <li>
@@ -16,6 +16,6 @@ export default function Sidebar({ cart }) {
           </li>
         </ul>
       </nav>
-    </div>
+    </header>
   );
 }
