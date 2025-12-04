@@ -12,7 +12,7 @@ export default function Sidebar({ cart }) {
             <NavLink to={`/shop`}>Shop</NavLink>
           </li>
           <li>
-            <NavLink to={`/cart`}>Cart {cart}</NavLink>
+            <NavLink to={`/cart`}>Cart {cart.length}</NavLink>
           </li>
         </ul>
       </nav>

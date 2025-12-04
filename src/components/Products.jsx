@@ -1,11 +1,15 @@
 import products from "../utils/dummyProducts";
 import ProductItem from "./ProductItem";
 
-export default function Products() {
+export default function Products({ handleAddToCart }) {
   return (
     <>
       {products.map((product) => (
-        <ProductItem key={product.id} product={product} />
+        <ProductItem
+          key={product.id}
+          product={product}
+          handleAddToCart={handleAddToCart}
+        />
       ))}
     </>
   );

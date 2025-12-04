@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, test, vi } from "vitest";
 import addProductToCart from "../addProductToCart";
 import products from "../dummyProducts";
 
@@ -10,18 +10,53 @@ vi.mock("../dummyProducts", () => ({
 }));
 
 describe("Function is working?", () => {
-  it("add a product with quantity to the empty cart", () => {
-    const setter = vi.fn((fn) => fn([]));
+  let setMock;
 
-    addProductToCart(setter, 1, 5);
+  beforeEach(() => {
+    let cartState = [];
+    setMock = vi.fn((fn) => {
+      cartState = fn(cartState);
+      return cartState;
+    });
+    vi.clearAllMocks();
+  });
 
-    expect(setter).toHaveBeenCalledOnce();
+  test("add a product with quantity to the empty cart", () => {
+    addProductToCart(setMock, 1, 5);
 
-    const result = setter.mock.results[0].value;
+    expect(setMock).toHaveBeenCalledOnce();
 
-    console.log(result);
+    const result = setMock.mock.results.at(0).value;
 
-    const product = products.find((p) => p.id === 1);
+    const product = products.find((product) => product.id === 1);
+
     expect(result).toEqual([{ ...product, quantity: 5 }]);
+  });
+
+  test("don't add a product if the product id is not in the list", () => {
+    addProductToCart(setMock, 10, 10);
+
+    expect(setMock).not.toHaveBeenCalledOnce();
+  });
+
+  test("add two products in the cart", () => {
+    addProductToCart(setMock, 1, 10);
+    addProductToCart(setMock, 2, 10);
+
+    expect(setMock).toHaveBeenCalledTimes(2);
+
+    const cart = setMock.mock.results.at(1).value;
+    expect(cart).toHaveLength(2);
+  });
+
+  test("update quantity on adding same product to the cart", () => {
+    addProductToCart(setMock, 1, 10);
+    addProductToCart(setMock, 2, 3);
+    addProductToCart(setMock, 2, 7);
+
+    const cart = setMock.mock.results.at(2).value;
+
+    expect(cart).toHaveLength(2);
+    expect(cart[1].quantity).toEqual(10);
   });
 });
