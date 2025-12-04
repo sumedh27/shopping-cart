@@ -3,6 +3,7 @@ import Header from "./components/Header.jsx";
 import { useState } from "react";
 import addProductToCart from "./utils/addProductToCart.js";
 import deleteProduct from "./utils/deleteProduct.js";
+import updateQuantity from "./utils/updateQuantity.js";
 
 export default function App() {
   const [cart, setCart] = useState([]);
@@ -19,11 +20,21 @@ export default function App() {
     setCart([]);
   };
 
+  const handleUpdateQuantity = (id, newQuantity) => {
+    updateQuantity(setCart, id, newQuantity);
+  };
+
   return (
     <>
       <Header cart={cart} />
       <Outlet
-        context={{ handleClearCart, handleDeleteCart, handleAddToCart, cart }}
+        context={{
+          handleUpdateQuantity,
+          handleClearCart,
+          handleDeleteCart,
+          handleAddToCart,
+          cart,
+        }}
       />
     </>
   );

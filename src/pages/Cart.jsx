@@ -2,7 +2,8 @@ import { useOutletContext } from "react-router";
 import CartItem from "../components/CartItem";
 
 export default function Cart() {
-  const { cart, handleDeleteCart, handleClearCart } = useOutletContext();
+  const { cart, handleDeleteCart, handleClearCart, handleUpdateQuantity } =
+    useOutletContext();
   return (
     <main>
       {cart.length > 0 ? (
@@ -15,12 +16,11 @@ export default function Cart() {
               cartItem={cartItem}
               key={cartItem.id}
               handleDeleteCart={handleDeleteCart}
+              handleUpdateQuantity={handleUpdateQuantity}
             />
           ))}
         </>
       ) : (
-        // (
-
         <h1>
           <i>No items in cart</i>
         </h1>

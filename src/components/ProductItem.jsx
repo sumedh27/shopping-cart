@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Form } from "react-router";
 
 export default function ProductItem({ products, product, handleAddToCart }) {
   const [value, setValue] = useState(1);
 
   const handleOnChange = (e) => {
-    setValue(e.target.value);
+    setValue(Number(e.target.value));
   };
 
   const handleIncrement = () => {
