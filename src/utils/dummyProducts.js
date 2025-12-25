@@ -2,26 +2,26 @@ const products = [
   {
     id: 1,
     title: "Peoples Shirt",
-    price: 0.1,
+    price: 100,
     description: "Shirt Made by People",
     category: "Shirt",
-    image: "https://robohash.org/you.png?size=200x200",
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
   },
   {
     id: 2,
     title: "Peoples Pant",
-    price: 0.1,
+    price: 200,
     description: "Pant Made by People",
     category: "Pant",
-    image: "https://robohash.org/1.png?size=200x200",
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
   },
   {
     id: 3,
     title: "Peoples Shorts",
-    price: 0.1,
+    price: 300,
     description: "Shorts Made by People",
     category: "Shorts",
-    image: "https://robohash.org/2.png?size=200x200",
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
   },
 ];
 
