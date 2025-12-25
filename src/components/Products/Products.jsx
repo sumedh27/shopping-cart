@@ -7,7 +7,7 @@ export default function Products({ handleAddToCart }) {
   const styles = {
     padding: "2rem",
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))",
+    gridTemplateColumns: "repeat(auto-fit,minmax(min(350px,100%),1fr))",
     gap: "30px",
   };
 

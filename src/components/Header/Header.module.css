@@ -1,4 +1,7 @@
 .header {
+  position: sticky;
+  z-index: 999;
+  top: 0;
   display: flex;
   padding: 1rem;
   background-color: var(--bg-600);
