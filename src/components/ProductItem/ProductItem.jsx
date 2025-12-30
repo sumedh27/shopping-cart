@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./ProductItem.module.css";
+import styles from "../products.module.css";
 
 export default function ProductItem({ products, product, handleAddToCart }) {
   const [value, setValue] = useState(1);

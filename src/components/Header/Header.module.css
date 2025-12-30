@@ -3,24 +3,21 @@
   z-index: 999;
   top: 0;
   display: flex;
-  padding: 1rem;
+  padding: 0 1rem 0 0;
   background-color: var(--bg-600);
 }
 
 .header h1 {
   margin: 0;
-  font-size: 3rem;
+  font-size: clamp(1.7rem, 4vw, 3rem);
   color: var(--primary-500);
   margin-left: auto;
   letter-spacing: 0.2rem;
-}
-
-.navLinks {
-  display: flex;
-  align-items: center;
+  padding: 1rem 0;
 }
 
 .navLinks ul {
+  height: 100%;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -28,14 +25,21 @@
   overflow: hidden;
 }
 
+.navLinks li {
+  height: 100%;
+  display: flex;
+}
+
 .navLinks a {
   text-decoration: none;
   color: #2b2b2b;
-  padding: 10px;
   display: block;
-  text-align: center;
   font-size: 1.4rem;
   letter-spacing: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
 .navLinks a:hover {
@@ -61,10 +65,8 @@
 
 @media (max-width: 1024px) {
   .header {
-    padding: 0.5rem;
-  }
-  .header h1 {
-    font-size: 2.5rem;
+      padding: 0 0.5rem 0 0 ;
+
   }
 
   .navLinks a {
@@ -79,24 +81,38 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1.5fr 1fr;
-    gap: 10px;
+    justify-content: space-around;
     align-items: center;
   }
 
   .header h1 {
     grid-row: 1/2;
-    font-size: 2rem;
     margin: 0;
     justify-self: center;
   }
   .navLinks {
     grid-row: 2/3;
+    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: flex-end;
+  }
+
+  .navLinks ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0;
+  }
+
+  .navLinks li{
+    width: 100%;
   }
 
   .navLinks a {
     padding: 5px;
     font-size: 1.1rem;
+    width: 100%;
   }
 }
