@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import Header from "./components/Header.jsx";
+import Header from "./components/Header/Header.jsx";
 import { useState } from "react";
 import addProductToCart from "./utils/addProductToCart.js";
 import deleteProduct from "./utils/deleteProduct.js";
