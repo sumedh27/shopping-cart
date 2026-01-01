@@ -1,4 +1,4 @@
-function StarSVG({ fillColor, fillStroke }) {
+function StarSVG({ fillColorL, fillStrokeL, fillColorR, fillStrokeR }) {
   return (
     <svg
       width="16"
@@ -7,10 +7,8 @@ function StarSVG({ fillColor, fillStroke }) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        // fill={"#c4c4c4"}
-        // stroke="#c4c4c4"
-        fill={fillColor}
-        stroke={fillStroke}
+        fill={fillColorL}
+        stroke={fillStrokeL}
         strokeWidth=".5"
         d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"
       />
@@ -18,10 +16,8 @@ function StarSVG({ fillColor, fillStroke }) {
         <path d="M0 0h12v24H0z" />
       </clipPath>
       <path
-        // fill="gold"
-        // stroke="gold"
-        fill={fillColor}
-        stroke={fillStroke}
+        fill={fillColorR}
+        stroke={fillStrokeR}
         strokeWidth=".5"
         clipPath="url(#a)"
         d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"
@@ -54,13 +50,28 @@ function Rating({ rating }) {
 
     return stars.map((num) => {
       if (num === 0) {
-        return { fillColor: "#c4c4c4", fillStroke: "#c4c4c4" };
+        return {
+          fillColorL: "#c4c4c4",
+          fillColorR: "#c4c4c4",
+          fillStrokeL: "#c4c4c4",
+          fillStrokeR: "#c4c4c4",
+        };
       }
       if (num === 0.5) {
-        return { fillColor: "gold", fillStroke: "#c4c4c4" };
+        return {
+          fillColorR: "gold",
+          fillColorL: "#c4c4c4",
+          fillStrokeR: "gold",
+          fillStrokeL: "#c4c4c4",
+        };
       }
       if (num === 1) {
-        return { fillColor: "gold", fillStroke: "gold" };
+        return {
+          fillColorL: "gold",
+          fillColorR: "gold",
+          fillStrokeL: "gold",
+          fillStrokeR: "gold",
+        };
       }
     });
   };
@@ -73,8 +84,10 @@ function Rating({ rating }) {
         {svgStars.map((star, i) => (
           <StarSVG
             key={i + 1}
-            fillColor={star.fillColor}
-            fillStroke={star.fillStroke}
+            fillColorL={star.fillColorL}
+            fillStrokeL={star.fillStrokeL}
+            fillColorR={star.fillColorR}
+            fillStrokeR={star.fillStrokeR}
           />
         ))}
       </div>

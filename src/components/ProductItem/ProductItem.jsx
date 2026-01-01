@@ -4,6 +4,7 @@ import Rating from "./Rating";
 
 export default function ProductItem({ products, product, handleAddToCart }) {
   const [value, setValue] = useState(1);
+  const [isSale] = useState(() => Math.random() < 0.5);
 
   const handleOnChange = (e) => {
     setValue(Number(e.target.value));
@@ -21,16 +22,11 @@ export default function ProductItem({ products, product, handleAddToCart }) {
     });
   };
 
-  const isSale = () => {
-    const sale = Math.floor(Math.random() * 2);
-    return sale === 1 ? true : false;
-  };
-
   const convertTo2 = +(product.price * 90).toFixed(2);
 
   return (
     <div className={styles.card} id="product-card">
-      {isSale() && <div className={styles.badge}>HOT SALE</div>}
+      {isSale && <div className={styles.badge}>HOT SALE</div>}
       <div className={styles.tilt}>
         <div className={styles.img}>
           <img src={product.image} />
