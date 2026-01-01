@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "../products.module.css";
+import Rating from "./Rating";
 
 export default function ProductItem({ products, product, handleAddToCart }) {
   const [value, setValue] = useState(1);
@@ -91,7 +92,10 @@ export default function ProductItem({ products, product, handleAddToCart }) {
           </div>
           <div className={styles.meta}>
             <div className={styles.rating}>
-              <span className={styles.rcount}>Reviews</span>
+              <Rating rating={product.rating.rate} />
+              <span className={styles.rcount}>
+                {product.rating.count} Reviews
+              </span>
             </div>
             <div className={styles.stock}>In Stock</div>
           </div>
