@@ -1,11 +1,12 @@
-import { useOutletContext } from "react-router";
 import ListCart from "../components/ListCart/ListCart.jsx";
 import CheckoutCart from "../components/CheckoutCart/CheckoutCart.jsx";
 
-export default function Cart() {
-  const { cart, handleDeleteCart, handleClearCart, handleUpdateQuantity } =
-    useOutletContext();
-
+export default function Cart({
+  cart,
+  handleDeleteCart,
+  handleClearCart,
+  handleUpdateQuantity,
+}) {
   const getCartTotal = (cart) => {
     let total = 0;
     for (let product of cart) {
