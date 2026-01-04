@@ -1,9 +1,21 @@
 import { useOutletContext } from "react-router";
-import CartItem from "../components/CartItem/CartItem.jsx";
+import ListCart from "../components/ListCart/ListCart.jsx";
+import CheckoutCart from "../components/CheckoutCart/CheckoutCart.jsx";
 
 export default function Cart() {
   const { cart, handleDeleteCart, handleClearCart, handleUpdateQuantity } =
     useOutletContext();
+
+  const getCartTotal = (cart) => {
+    let total = 0;
+    for (let product of cart) {
+      total += product.price;
+    }
+
+    return +(total * 90).toFixed(3);
+  };
+
+  const cartTotal = getCartTotal(cart);
 
   const style = {
     padding: "2rem",
@@ -15,17 +27,13 @@ export default function Cart() {
     <main style={style}>
       {cart.length > 0 ? (
         <>
-          {/* <button type="button" onClick={handleClearCart}>
-            Clear Cart
-          </button> */}
-          {cart.map((cartItem) => (
-            <CartItem
-              cartItem={cartItem}
-              key={cartItem.id}
-              handleDeleteCart={handleDeleteCart}
-              handleUpdateQuantity={handleUpdateQuantity}
-            />
-          ))}
+          <ListCart
+            cart={cart}
+            handleDeleteCart={handleDeleteCart}
+            handleUpdateQuantity={handleUpdateQuantity}
+            handleClearCart={handleClearCart}
+          />
+          <CheckoutCart cartTotal={cartTotal} />
         </>
       ) : (
         <h1>
