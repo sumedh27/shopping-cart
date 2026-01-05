@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styles from "../products.module.css";
+import Rating from "./Rating";
 
 export default function ProductItem({ products, product, handleAddToCart }) {
   const [value, setValue] = useState(1);
+  const [isSale] = useState(() => Math.random() < 0.5);
 
   const handleOnChange = (e) => {
     setValue(Number(e.target.value));
@@ -24,7 +26,7 @@ export default function ProductItem({ products, product, handleAddToCart }) {
 
   return (
     <div className={styles.card} id="product-card">
-      <div className={styles.badge}>HOT SALE</div>
+      {isSale && <div className={styles.badge}>HOT SALE</div>}
       <div className={styles.tilt}>
         <div className={styles.img}>
           <img src={product.image} />
@@ -91,7 +93,10 @@ export default function ProductItem({ products, product, handleAddToCart }) {
           </div>
           <div className={styles.meta}>
             <div className={styles.rating}>
-              <span className={styles.rcount}>Reviews</span>
+              <Rating rating={product.rating.rate} />
+              <span className={styles.rcount}>
+                {product.rating.count} Reviews
+              </span>
             </div>
             <div className={styles.stock}>In Stock</div>
           </div>

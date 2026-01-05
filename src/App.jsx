@@ -1,9 +1,10 @@
-import { Outlet } from "react-router";
 import Header from "./components/Header/Header.jsx";
 import { useState } from "react";
 import addProductToCart from "./utils/addProductToCart.js";
 import deleteProduct from "./utils/deleteProduct.js";
 import updateQuantity from "./utils/updateQuantity.js";
+
+import Page from "./route/Page.jsx";
 
 export default function App() {
   const [cart, setCart] = useState([]);
@@ -24,18 +25,18 @@ export default function App() {
     updateQuantity(setCart, id, newQuantity);
   };
 
+  const propsForPages = {
+    handleUpdateQuantity,
+    handleClearCart,
+    handleDeleteCart,
+    handleAddToCart,
+    cart,
+  };
+
   return (
     <>
       <Header cart={cart} />
-      <Outlet
-        context={{
-          handleUpdateQuantity,
-          handleClearCart,
-          handleDeleteCart,
-          handleAddToCart,
-          cart,
-        }}
-      />
+      <Page {...propsForPages} />
     </>
   );
 }

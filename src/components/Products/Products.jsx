@@ -1,6 +1,5 @@
 import useFetchGetReq from "../../hooks/useFetchGetReq";
 import ProductItem from "../ProductItem/ProductItem";
-import products from "../../utils/dummyProducts.js";
 export default function Products({ handleAddToCart }) {
   const { data, error, loading } = useFetchGetReq();
 
@@ -25,15 +24,6 @@ export default function Products({ handleAddToCart }) {
             handleAddToCart={handleAddToCart}
           />
         ))}
-
-      {/* {products.map((product) => (
-        <ProductItem
-          key={product.id}
-          products={products}
-          product={product}
-          handleAddToCart={handleAddToCart}
-        />
-      ))} */}
     </main>
   );
 }
