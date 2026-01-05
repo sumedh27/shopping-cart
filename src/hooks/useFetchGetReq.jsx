@@ -4,7 +4,7 @@ function productsReducer(state, action) {
   const { type, payload } = action;
   switch (type) {
     case "error": {
-      return { ...state, isLoading: false, error: payload.err };
+      return { ...state, isLoading: false, error: payload.message };
     }
     case "success": {
       return { ...state, isLoading: false, products: payload.data };
@@ -33,17 +33,21 @@ function useFetchGetReq() {
           },
           signal: controller.signal,
         });
+        let data = await res.json();
 
         if (!res.ok) {
-          throw new Error(`HTTP error: Status ${res.status}`);
+          dispatch({
+            type: "error",
+            payload: data || `HTTP error: ${res.status}`,
+          });
+          return state;
         }
-
-        let data = await res.json();
 
         dispatch({ type: "success", payload: { data } });
       } catch (err) {
         if (err.name === "AbortError") return;
-        dispatch({ type: "error", payload: { err } });
+
+        dispatch({ type: "error", payload: { message: err.message } });
       }
     };
 
