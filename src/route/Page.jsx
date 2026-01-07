@@ -12,6 +12,9 @@ function Page(props) {
     handleDeleteCart,
     handleAddToCart,
     cart,
+    products,
+    isLoading,
+    error,
   } = props;
 
   return useRoutes([
@@ -19,7 +22,14 @@ function Page(props) {
     { path: "/", element: <Home /> },
     {
       path: "/shop",
-      element: <Shop handleAddToCart={handleAddToCart} />,
+      element: (
+        <Shop
+          handleAddToCart={handleAddToCart}
+          products={products}
+          isLoading={isLoading}
+          error={error}
+        />
+      ),
     },
     {
       path: "/cart",
