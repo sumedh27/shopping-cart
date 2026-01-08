@@ -7,11 +7,14 @@ import Cart from "../pages/Cart";
 
 function Page(props) {
   const {
-    handleUpdateQuantity,
-    handleClearCart,
-    handleDeleteCart,
-    handleAddToCart,
     cart,
+    products,
+    isLoading,
+    error,
+    addToCart,
+    deleteFromCart,
+    decrementFromCart,
+    resetCart,
   } = props;
 
   return useRoutes([
@@ -19,16 +22,24 @@ function Page(props) {
     { path: "/", element: <Home /> },
     {
       path: "/shop",
-      element: <Shop handleAddToCart={handleAddToCart} />,
+      element: (
+        <Shop
+          products={products}
+          isLoading={isLoading}
+          error={error}
+          addToCart={addToCart}
+        />
+      ),
     },
     {
       path: "/cart",
       element: (
         <Cart
           cart={cart}
-          handleClearCart={handleClearCart}
-          handleDeleteCart={handleDeleteCart}
-          handleUpdateQuantity={handleUpdateQuantity}
+          deleteFromCart={deleteFromCart}
+          decrementFromCart={decrementFromCart}
+          addToCart={addToCart}
+          resetCart={resetCart}
         />
       ),
     },

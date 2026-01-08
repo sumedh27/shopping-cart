@@ -1,8 +1,6 @@
-import useFetchGetReq from "../../hooks/useFetchGetReq";
 import ProductItem from "../ProductItem/ProductItem";
-export default function Products({ handleAddToCart }) {
-  const { data, error, loading } = useFetchGetReq();
-
+export default function Products(props) {
+  const { handleAddToCart, products, isLoading, error, addToCart } = props;
   const styles = {
     padding: "2rem",
     display: "grid",
@@ -12,16 +10,17 @@ export default function Products({ handleAddToCart }) {
 
   return (
     <main style={styles}>
-      {loading && <h1>Loading.....</h1>}
-      {error && !loading && <h1>{error}</h1>}
-      {!loading &&
-        data &&
-        data.map((product) => (
+      {isLoading && <h1>Loading.....</h1>}
+      {error && !isLoading && <h1>{error}</h1>}
+      {!isLoading &&
+        products &&
+        products.map((product) => (
           <ProductItem
             key={product.id}
-            products={data}
+            products={products}
             product={product}
             handleAddToCart={handleAddToCart}
+            addToCart={addToCart}
           />
         ))}
     </main>

@@ -1,27 +1,28 @@
 import CartItem from "../CartItem/CartItem";
 
-function ListCart({
-  cart,
-  handleDeleteCart,
-  handleUpdateQuantity,
-  handleClearCart,
-}) {
+function ListCart(props) {
+  const { cart, deleteFromCart, decrementFromCart, addToCart, resetCart } =
+    props;
+
+  const IteratedCartItems = cart.map((cartItem) => (
+    <CartItem
+      cartItem={cartItem}
+      key={cartItem.id}
+      deleteFromCart={deleteFromCart}
+      decrementFromCart={decrementFromCart}
+      addToCart={addToCart}
+    />
+  ));
+
   return (
     <div>
       <div>
         <h2>Cart ({cart.length} items)</h2>
-        <button type="button" onClick={handleClearCart}>
+        <button type="button" onClick={resetCart}>
           Clear Cart
         </button>
       </div>
-      {cart.map((cartItem) => (
-        <CartItem
-          cartItem={cartItem}
-          key={cartItem.id}
-          handleDeleteCart={handleDeleteCart}
-          handleUpdateQuantity={handleUpdateQuantity}
-        />
-      ))}
+      {IteratedCartItems}
     </div>
   );
 }
