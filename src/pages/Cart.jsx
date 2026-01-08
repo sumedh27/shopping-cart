@@ -1,12 +1,10 @@
 import ListCart from "../components/ListCart/ListCart.jsx";
 import CheckoutCart from "../components/CheckoutCart/CheckoutCart.jsx";
 
-export default function Cart({
-  cart,
-  handleDeleteCart,
-  handleClearCart,
-  handleUpdateQuantity,
-}) {
+export default function Cart(props) {
+  const { cart, deleteFromCart, decrementFromCart, addToCart, resetCart } =
+    props;
+
   const getCartTotal = (cart) => {
     let total = 0;
     for (let product of cart) {
@@ -30,9 +28,10 @@ export default function Cart({
         <>
           <ListCart
             cart={cart}
-            handleDeleteCart={handleDeleteCart}
-            handleUpdateQuantity={handleUpdateQuantity}
-            handleClearCart={handleClearCart}
+            deleteFromCart={deleteFromCart}
+            decrementFromCart={decrementFromCart}
+            addToCart={addToCart}
+            resetCart={resetCart}
           />
           <CheckoutCart cartTotal={cartTotal} />
         </>

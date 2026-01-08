@@ -1,29 +1,16 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import styles from "../products.module.css";
 
 export default function CartItem({
   cartItem,
-  handleDeleteCart,
-  handleUpdateQuantity,
+  deleteFromCart,
+  decrementFromCart,
+  addToCart,
 }) {
-  const [value, setValue] = useState(cartItem.quantity);
-
-  useEffect(() => {
-    if (value !== cartItem.quantity) {
-      handleUpdateQuantity(cartItem.id, value);
-    }
-  }, [value, cartItem, handleUpdateQuantity]);
-
-  const handleOnChange = (e) => {
-    setValue(Number(e.target.value));
-  };
-
-  const handleIncrement = () => {
-    setValue((prev) => prev + 1);
-  };
-
-  const handleDecrement = () => {
-    setValue((prev) => Math.max(1, prev - 1));
+  const deleteOrDecrement = (quantity, { targetId }) => {
+    return quantity === 1
+      ? deleteFromCart({ targetId })
+      : decrementFromCart({ targetId });
   };
 
   const convertTo2 = +(cartItem.price * 90).toFixed(2);
@@ -48,15 +35,15 @@ export default function CartItem({
                 type="number"
                 id="cartQuantity"
                 name="cartQuantity"
-                value={value}
-                onChange={handleOnChange}
+                value={cartItem.quantity}
                 min="1"
+                readOnly
               />
               <div className={styles.userBtn}>
                 <button
                   className={`${styles.plus} ${styles.btn}`}
                   type="button"
-                  onClick={handleIncrement}
+                  onClick={() => addToCart({ targetId: cartItem.id })}
                 >
                   +
                 </button>
@@ -64,8 +51,9 @@ export default function CartItem({
                   className={`${styles.minus} ${styles.btn}`}
                   type="button"
                   onClick={() => {
-                    handleDecrement();
-                    handleUpdateQuantity(cartItem.id, value);
+                    deleteOrDecrement(cartItem.quantity, {
+                      targetId: cartItem.id,
+                    });
                   }}
                 >
                   -
@@ -74,7 +62,9 @@ export default function CartItem({
               <button
                 className={`${styles.addToCart} ${styles.btn}`}
                 type="button"
-                onClick={() => handleDeleteCart(cartItem.id)}
+                onClick={() => {
+                  deleteFromCart({ targetId: cartItem.id });
+                }}
               >
                 Remove Item
               </button>

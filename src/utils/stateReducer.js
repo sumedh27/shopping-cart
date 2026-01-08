@@ -14,11 +14,26 @@ const incrementProduct = (state, payload) => {
     const { quantity } = product;
 
     if (product.id === targetId) {
-      return { ...product, quantity: quantity + targetQuantity };
+      return { ...product, quantity: quantity + (targetQuantity || 1) };
     }
 
     return product;
   });
+  return { ...state, cart: updatedArr };
+};
+
+const decrementProduct = (state, { targetId }) => {
+  const copiedArr = [...state.cart];
+  const updatedArr = copiedArr.map((product) => {
+    const { quantity } = product;
+
+    if (product.id === targetId) {
+      return { ...product, quantity: quantity - 1 };
+    }
+
+    return product;
+  });
+
   return { ...state, cart: updatedArr };
 };
 
@@ -49,6 +64,12 @@ const addProductToCart = (state, { targetId, targetQuantity }) => {
   }
 };
 
+const deleteProductFromCart = (state, { targetId }) => {
+  const copiedArr = [...state.cart];
+  const updatedArr = copiedArr.filter((product) => product.id !== targetId);
+  return { ...state, cart: updatedArr };
+};
+
 export function stateReducer(state, action) {
   const { type, payload } = action;
 
@@ -58,6 +79,15 @@ export function stateReducer(state, action) {
     }
     case "ADD_TO_CART": {
       return addProductToCart(state, payload);
+    }
+    case "DELETE_FROM_CART": {
+      return deleteProductFromCart(state, payload);
+    }
+    case "DECREMENT_FROM_CART": {
+      return decrementProduct(state, payload);
+    }
+    case "RESET_CART": {
+      return { ...state, cart: [] };
     }
     default: {
       throw new Error(`Unhandled action type: ${type}`);
