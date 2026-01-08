@@ -1,5 +1,5 @@
 import Header from "./components/Header/Header.jsx";
-import { useEffect, useReducer, useState } from "react";
+import { useCallback, useEffect, useReducer, useState } from "react";
 import addProductToCart from "./utils/addProductToCart.js";
 import deleteProduct from "./utils/deleteProduct.js";
 import updateQuantity from "./utils/updateQuantity.js";
@@ -20,6 +20,11 @@ export default function App() {
     }
   }, [isLoading, products]);
 
+  const addToCart = useCallback(
+    (payload) => dispatch({ type: "ADD_TO_CART", payload }),
+    []
+  );
+
   const handleAddToCart = (products, id, quantity) => {
     addProductToCart(setCart, products, id, quantity);
   };
@@ -36,11 +41,13 @@ export default function App() {
     updateQuantity(setCart, id, newQuantity);
   };
 
+  console.log(state.cart);
   const propsForPages = {
     handleUpdateQuantity,
     handleClearCart,
     handleDeleteCart,
     handleAddToCart,
+    addToCart,
     cart,
     products: state.products,
     isLoading,

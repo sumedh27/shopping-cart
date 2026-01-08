@@ -21,10 +21,8 @@ function useFetchGetReq() {
     products: null,
     error: null,
   });
-
   useEffect(() => {
     const controller = new AbortController();
-
     const fetchData = async () => {
       try {
         const res = await fetch("https://fakestoreapi.com/products", {

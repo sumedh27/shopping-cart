@@ -2,7 +2,12 @@ import { useState } from "react";
 import styles from "../products.module.css";
 import Rating from "./Rating";
 
-export default function ProductItem({ products, product, handleAddToCart }) {
+export default function ProductItem({
+  products,
+  product,
+  handleAddToCart,
+  addToCart,
+}) {
   const [value, setValue] = useState(1);
   const [isSale] = useState(() => Math.random() < 0.5);
 
@@ -71,6 +76,7 @@ export default function ProductItem({ products, product, handleAddToCart }) {
                 type="button"
                 onClick={() => {
                   handleAddToCart(products, product.id, value);
+                  addToCart({ targetId: product.id, targetQuantity: value });
                   setValue(1);
                 }}
               >

@@ -15,6 +15,7 @@ function Page(props) {
     products,
     isLoading,
     error,
+    addToCart,
   } = props;
 
   return useRoutes([
@@ -28,6 +29,7 @@ function Page(props) {
           products={products}
           isLoading={isLoading}
           error={error}
+          addToCart={addToCart}
         />
       ),
     },

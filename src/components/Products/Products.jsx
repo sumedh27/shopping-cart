@@ -1,6 +1,6 @@
 import ProductItem from "../ProductItem/ProductItem";
 export default function Products(props) {
-  const { handleAddToCart, products, isLoading, error } = props;
+  const { handleAddToCart, products, isLoading, error, addToCart } = props;
   const styles = {
     padding: "2rem",
     display: "grid",
@@ -20,6 +20,7 @@ export default function Products(props) {
             products={products}
             product={product}
             handleAddToCart={handleAddToCart}
+            addToCart={addToCart}
           />
         ))}
     </main>
