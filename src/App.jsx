@@ -16,10 +16,14 @@ export default function App() {
     }
   }, [isLoading, products]);
 
-  const addToCart = useCallback(
-    (payload) => dispatch({ type: "ADD_TO_CART", payload }),
-    []
-  );
+  const addToCart = useCallback((payload) => {
+    return dispatch({ type: "ADD_TO_CART", payload });
+  }, []);
+
+  // const addToCart = (payload) => {
+  //   console.log("callback render" );
+  //   return dispatch({ type: "ADD_TO_CART", payload });
+  // };
 
   const deleteFromCart = useCallback(
     (payload) => dispatch({ type: "DELETE_FROM_CART", payload }),
