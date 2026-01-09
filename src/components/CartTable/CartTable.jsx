@@ -30,7 +30,7 @@ export default function CartTable(props) {
       <tbody>{IteratedCartsItem}</tbody>
       <tfoot>
         <tr>
-          <th scope="row" colSpan="3">
+          <th scope="row" colSpan="6">
             Cost
           </th>
           <td>33</td>
