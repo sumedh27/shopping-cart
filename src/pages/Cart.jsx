@@ -1,5 +1,6 @@
 import ListCart from "../components/ListCart/ListCart.jsx";
 import CheckoutCart from "../components/CheckoutCart/CheckoutCart.jsx";
+import CartTable from "../components/CartTable/CartTable.jsx";
 
 export default function Cart(props) {
   const { cart, deleteFromCart, decrementFromCart, addToCart, resetCart } =
@@ -26,7 +27,7 @@ export default function Cart(props) {
     <main style={style}>
       {cart.length > 0 ? (
         <>
-          <ListCart
+          <CartTable
             cart={cart}
             deleteFromCart={deleteFromCart}
             decrementFromCart={decrementFromCart}
