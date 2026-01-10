@@ -35,8 +35,8 @@ export default function App() {
     []
   );
 
-  const resetCart = useCallback((payload) => {
-    dispatch({ type: "RESET_CART", payload });
+  const resetCart = useCallback(() => {
+    dispatch({ type: "RESET_CART" });
   }, []);
 
   const propsForPages = {
