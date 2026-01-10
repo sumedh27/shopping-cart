@@ -1,8 +1,14 @@
 import CartItem from "../CartItem/CartItem";
 
 export default function CartTable(props) {
-  const { cart, deleteFromCart, decrementFromCart, addToCart, resetCart } =
-    props;
+  const {
+    cart,
+    deleteFromCart,
+    decrementFromCart,
+    addToCart,
+    resetCart,
+    cartTotal,
+  } = props;
 
   const IteratedCartsItem = cart.map((cartItem, i) => {
     return (
@@ -25,15 +31,21 @@ export default function CartTable(props) {
           <th scope="col" colSpan="4">
             Cart{" "}
           </th>
+          <td>
+            {cart.length === 1
+              ? `(${cart.length} item)`
+              : `(${cart.length} items)`}
+          </td>
         </tr>
       </thead>
       <tbody>{IteratedCartsItem}</tbody>
       <tfoot>
         <tr>
           <th scope="row" colSpan="6">
+            <button onClick={() => resetCart()}>Clear Cart</button>
             Cost
           </th>
-          <td>33</td>
+          <td>Rs. {cartTotal}</td>
         </tr>
       </tfoot>
     </table>

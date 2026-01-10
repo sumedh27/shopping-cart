@@ -39,7 +39,7 @@ export default function CartItem({
       <td>
         <button onClick={() => addToCart({ targetId: cartItem.id })}>+</button>
       </td>
-      <td>{convertTo2}</td>
+      <td>Rs. {convertTo2}</td>
       <td>
         <button onClick={() => deleteFromCart({ targetId: cartItem.id })}>
           Remove From Cart

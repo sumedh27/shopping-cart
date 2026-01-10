@@ -1,12 +1,35 @@
 function CheckoutCart({ cartTotal }) {
   return (
-    <div>
-      <h3>Estimated Costs</h3>
-      <h3>SubTotal: Rs.{cartTotal}</h3>
-      <h3>Tax: 0</h3>
-      <h3>Estimated Total: Rs.{cartTotal}</h3>
-      <button>Checkout</button>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th scope="row" colSpan="2">
+            Estimated Cost
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Cost</th>
+          <td>Rs. {cartTotal}</td>
+        </tr>
+        <tr>
+          <th scope="row">Tax</th>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th scope="row">Total Cost</th>
+          <td>Rs. {cartTotal}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row" colSpan="2">
+            <button>Check Out</button>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
   );
 }
 

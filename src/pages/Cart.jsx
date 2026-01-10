@@ -33,6 +33,7 @@ export default function Cart(props) {
             decrementFromCart={decrementFromCart}
             addToCart={addToCart}
             resetCart={resetCart}
+            cartTotal={cartTotal}
           />
           <CheckoutCart cartTotal={cartTotal} />
         </>
