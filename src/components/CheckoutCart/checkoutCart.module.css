@@ -1,0 +1,34 @@
+.checkOutTable {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9rem;
+  min-width: 350px;
+  max-width: 60dvw;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  font-family: inherit;
+  margin-right: 100px;
+}
+
+.checkOutTable thead tr {
+  color: #ffffff;
+  background-color: var(--primary-500);
+  text-align: left;
+  font-weight: bold;
+}
+
+.checkOutTable th,
+.checkOutTable td {
+  padding: 12px 15px;
+}
+
+.checkOutTable tbody tr {
+  border-bottom: 1px solid var(--primary-200);
+}
+
+.checkOutTable tfoot {
+  color: #ffffff;
+  background-color: var(--primary-500);
+  border-bottom: 2px solid var(--primary-500);
+}

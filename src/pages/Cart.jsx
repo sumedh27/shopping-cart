@@ -19,9 +19,10 @@ export default function Cart(props) {
 
   const style = {
     padding: "2rem",
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill,minmax(min(350px,100%),1fr))",
+    display: "flex",
     gap: "30px",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
   };
   return (
     <main style={style}>

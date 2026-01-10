@@ -1,6 +1,8 @@
+import styles from "./checkoutCart.module.css";
+
 function CheckoutCart({ cartTotal }) {
   return (
-    <table>
+    <table className={styles.checkOutTable}>
       <thead>
         <tr>
           <th scope="row" colSpan="2">

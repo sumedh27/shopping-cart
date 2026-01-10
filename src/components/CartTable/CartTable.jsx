@@ -1,4 +1,5 @@
 import CartItem from "../CartItem/CartItem";
+import styles from "./cartTable.module.css";
 
 export default function CartTable(props) {
   const {
@@ -25,17 +26,15 @@ export default function CartTable(props) {
   });
 
   return (
-    <table>
+    <table className={styles.contentTable}>
       <thead>
         <tr>
-          <th scope="col" colSpan="4">
+          <th scope="col" colSpan="8">
             Cart{" "}
-          </th>
-          <td>
             {cart.length === 1
               ? `(${cart.length} item)`
               : `(${cart.length} items)`}
-          </td>
+          </th>
         </tr>
       </thead>
       <tbody>{IteratedCartsItem}</tbody>
@@ -45,7 +44,7 @@ export default function CartTable(props) {
             <button onClick={() => resetCart()}>Clear Cart</button>
             Cost
           </th>
-          <td>Rs. {cartTotal}</td>
+          <td colSpan="2">Rs. {cartTotal}</td>
         </tr>
       </tfoot>
     </table>
