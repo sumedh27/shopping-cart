@@ -1,4 +1,5 @@
 import styles from "./checkoutCart.module.css";
+import pStyles from "../CartTable/cartTable.module.css";
 
 function CheckoutCart({ cartTotal }) {
   return (
@@ -26,9 +27,10 @@ function CheckoutCart({ cartTotal }) {
       </tbody>
       <tfoot>
         <tr>
-          <th scope="row" colSpan="2">
-            <button>Check Out</button>
-          </th>
+          <td></td>
+          <td>
+            <button className={pStyles.btn}>Check Out</button>
+          </td>
         </tr>
       </tfoot>
     </table>

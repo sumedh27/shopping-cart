@@ -1,4 +1,5 @@
 import styles from "./cartItem.module.css";
+import pStyles from "../CartTable/cartTable.module.css";
 
 export default function CartItem({
   itemNum,
@@ -28,6 +29,7 @@ export default function CartItem({
       <td>{cartItem.title}</td>
       <td>
         <button
+          className={pStyles.btn}
           onClick={() =>
             deleteOrDecrement(cartItem.quantity, { targetId: cartItem.id })
           }
@@ -37,11 +39,19 @@ export default function CartItem({
       </td>
       <td>{cartItem.quantity}</td>
       <td>
-        <button onClick={() => addToCart({ targetId: cartItem.id })}>+</button>
+        <button
+          className={pStyles.btn}
+          onClick={() => addToCart({ targetId: cartItem.id })}
+        >
+          +
+        </button>
       </td>
       <td>Rs. {convertTo2}</td>
       <td>
-        <button onClick={() => deleteFromCart({ targetId: cartItem.id })}>
+        <button
+          className={pStyles.btn}
+          onClick={() => deleteFromCart({ targetId: cartItem.id })}
+        >
           Remove From Cart
         </button>
       </td>

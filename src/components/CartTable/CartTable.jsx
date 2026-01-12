@@ -41,10 +41,14 @@ export default function CartTable(props) {
       <tfoot>
         <tr>
           <th scope="row" colSpan="6">
-            <button onClick={() => resetCart()}>Clear Cart</button>
             Cost
           </th>
-          <td colSpan="2">Rs. {cartTotal}</td>
+          <td>Rs. {cartTotal}</td>
+          <td>
+            <button className={styles.btn} onClick={() => resetCart()}>
+              Clear Cart
+            </button>
+          </td>
         </tr>
       </tfoot>
     </table>
