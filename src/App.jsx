@@ -20,11 +20,6 @@ export default function App() {
     return dispatch({ type: "ADD_TO_CART", payload });
   }, []);
 
-  // const addToCart = (payload) => {
-  //   console.log("callback render" );
-  //   return dispatch({ type: "ADD_TO_CART", payload });
-  // };
-
   const deleteFromCart = useCallback(
     (payload) => dispatch({ type: "DELETE_FROM_CART", payload }),
     []

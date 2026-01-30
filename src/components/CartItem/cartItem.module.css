@@ -1,5 +1,86 @@
-.cartImage {
-  max-height: 100px;
-  max-width: 100px;
+.cartItemsWrapper {
+  display: grid;
+  grid-template-columns:
+    25px /* index */
+    70px /* image */
+    2.5fr /* title */
+    1fr /* quantity */
+    1fr /* price */
+    100px; /* remove button */
+
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid #2b2b2b2b;
+}
+
+.cartChange {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  background: linear-gradient(45deg, #18181b, #27272a);
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #27272a, #3f3f46);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.inputBtn {
+  padding: 5px 10px;
+}
+
+.cartChange input[type="number"] {
+  padding: 5px 0;
+  border-radius: 0;
+}
+
+.decBtn {
+  border-radius: 8px 0 0 8px;
+}
+
+.incBtn {
+  border-radius: 0 8px 8px 0;
+}
+
+.removeFromBtn {
+  text-transform: uppercase;
+  font-family: inherit;
+  padding: 5px 8px;
+  border-radius: 8px;
+}
+
+.itemImage {
+  height: 70px;
+  width: 70px;
   object-fit: contain;
+}
+
+.cartSrNo {
+  text-align: center;
+  font-weight: 600;
+}
+
+.cartTitle {
+  text-align: left;
+  line-height: 1.4;
+}
+
+.cartQty,
+.cartPrice {
+  display: flex;
+  justify-content: center;
 }

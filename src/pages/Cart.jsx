@@ -1,5 +1,6 @@
 import CheckoutCart from "../components/CheckoutCart/CheckoutCart.jsx";
-import CartTable from "../components/CartTable/CartTable.jsx";
+import CartList from "../components/CartList/CartList.jsx";
+import styles from "./cart.module.css";
 import { useCallback } from "react";
 
 export default function Cart(props) {
@@ -17,18 +18,11 @@ export default function Cart(props) {
 
   const cartTotal = getCartTotal(cart);
 
-  const style = {
-    padding: "2rem",
-    display: "flex",
-    gap: "30px",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-  };
   return (
-    <main style={style}>
+    <main className={styles.cartWrapper}>
       {cart.length > 0 ? (
         <>
-          <CartTable
+          <CartList
             cart={cart}
             deleteFromCart={deleteFromCart}
             decrementFromCart={decrementFromCart}
