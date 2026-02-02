@@ -4,6 +4,7 @@ import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Shop from "../pages/Shop";
 import Cart from "../pages/Cart";
+import Search from "../components/Search/Search";
 
 function Page(props) {
   const {
@@ -15,6 +16,8 @@ function Page(props) {
     deleteFromCart,
     decrementFromCart,
     resetCart,
+    search,
+    setSearch,
   } = props;
 
   return useRoutes([
@@ -28,6 +31,8 @@ function Page(props) {
           isLoading={isLoading}
           error={error}
           addToCart={addToCart}
+          search={search}
+          setSearch={setSearch}
         />
       ),
     },

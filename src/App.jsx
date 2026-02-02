@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useReducer } from "react";
+import { useCallback, useEffect, useReducer, useState } from "react";
 import { stateReducer } from "./utils/stateReducer.js";
 import useFetchGetReq from "./hooks/useFetchGetReq.jsx";
 import Header from "./components/Header/Header.jsx";
@@ -7,6 +7,7 @@ import Page from "./route/Page.jsx";
 export default function App() {
   const initialState = { products: [], cart: [] };
   const [state, dispatch] = useReducer(stateReducer, initialState);
+  const [search, setSearch] = useState("");
 
   const { products, isLoading, error } = useFetchGetReq();
 
@@ -22,12 +23,12 @@ export default function App() {
 
   const deleteFromCart = useCallback(
     (payload) => dispatch({ type: "DELETE_FROM_CART", payload }),
-    []
+    [],
   );
 
   const decrementFromCart = useCallback(
     (payload) => dispatch({ type: "DECREMENT_FROM_CART", payload }),
-    []
+    [],
   );
 
   const resetCart = useCallback(() => {
@@ -43,6 +44,8 @@ export default function App() {
     resetCart,
     isLoading,
     error,
+    search,
+    setSearch,
   };
 
   return (

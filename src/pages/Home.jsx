@@ -6,15 +6,20 @@ export default function Home() {
   return (
     <>
       <main className={styles.home}>
-        <div>
+        <div className={styles.content}>
           <h1>
-            Welcome to{" "}
-            <span style={{ color: "var(--primary-500)" }}>Shopping Cart</span>
+            Simple <span>Shopping Cart</span> 
           </h1>
-          <h3>A SIMPLE REACT PROJECT</h3>
-          <Link to={`/shop`}>Shop Now</Link>
+          <p>
+            A minimal React project
+          </p>
+          <div className={styles.actions}>
+            <Link to="/shop" className={styles.primaryBtn}>
+              Shop Now
+            </Link>
+          </div>
         </div>
-        <HomeCart />
+        <HomeCart className={styles.bgSvg} />
       </main>
     </>
   );

@@ -1,6 +1,24 @@
+import { useMemo } from "react";
 import ProductItem from "../ProductItem/ProductItem";
+
 export default function Products(props) {
-  const { handleAddToCart, products, isLoading, error, addToCart } = props;
+  const { handleAddToCart, products, isLoading, error, addToCart, search } =
+    props;
+
+  const filteredProducts = useMemo(() => {
+    if (!search?.trim()) return products;
+
+    if (search) {
+      const lowerCaseSearch = search.toLowerCase();
+
+      return products.filter((product) =>
+        ["title", "category"].some((key) =>
+          product[key]?.toLowerCase().includes(lowerCaseSearch),
+        ),
+      );
+    }
+  }, [products, search]);
+
   const styles = {
     padding: "2rem",
     display: "grid",
@@ -9,20 +27,20 @@ export default function Products(props) {
   };
 
   return (
-    <main style={styles}>
+    <div style={styles}>
       {isLoading && <h1>Loading.....</h1>}
       {error && !isLoading && <h1>{error}</h1>}
       {!isLoading &&
-        products &&
-        products.map((product) => (
+        filteredProducts &&
+        filteredProducts.map((product) => (
           <ProductItem
             key={product.id}
-            products={products}
+            products={filteredProducts}
             product={product}
             handleAddToCart={handleAddToCart}
             addToCart={addToCart}
           />
         ))}
-    </main>
+    </div>
   );
 }
