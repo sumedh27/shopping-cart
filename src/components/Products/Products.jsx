@@ -2,10 +2,17 @@ import { useMemo } from "react";
 import ProductItem from "../ProductItem/ProductItem";
 
 export default function Products(props) {
-  const { handleAddToCart, products, isLoading, error, addToCart, search } =
-    props;
+  const {
+    handleAddToCart,
+    products,
+    isLoading,
+    error,
+    addToCart,
+    filterItemsMethods,
+  } = props;
 
   const filteredProducts = useMemo(() => {
+    const { search } = filterItemsMethods;
     if (!search?.trim()) return products;
 
     if (search) {
@@ -17,7 +24,7 @@ export default function Products(props) {
         ),
       );
     }
-  }, [products, search]);
+  }, [products, filterItemsMethods]);
 
   const styles = {
     padding: "2rem",

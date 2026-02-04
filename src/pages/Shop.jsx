@@ -8,19 +8,22 @@ export default function Shop(props) {
     isLoading,
     error,
     addToCart,
-    search,
-    setSearch,
+    filterItemsMethods,
+    handleFilterItems,
   } = props;
   return (
     <main>
-      <Search search={search} setSearch={setSearch} />
+      <Search
+        filterItemsMethods={filterItemsMethods}
+        handleFilterItems={handleFilterItems}
+      />
       <Products
         handleAddToCart={handleAddToCart}
         products={products}
         isLoading={isLoading}
         error={error}
         addToCart={addToCart}
-        search={search}
+        filterItemsMethods={filterItemsMethods}
       />
     </main>
   );
