@@ -48,3 +48,8 @@ body {
   font-family: "Literata", "Tinos", "Acme", "Lucida Sans", "Lucida Sans Regular";
 }
 
+#root{
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}

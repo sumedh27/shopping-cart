@@ -1,10 +1,9 @@
-function HomeCart() {
+function HomeCart({ className }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
       viewBox="0 0 80 80"
-      width="400"
-      height="400"
       xmlSpace="preserve"
     >
       <path

@@ -1,0 +1,56 @@
+.checkOutTable {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9rem;
+  width: min(75dvw, 300px);
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  font-family: inherit;
+}
+
+.checkOutTable thead tr {
+  color: #ffffff;
+  background-color: var(--primary-500);
+  text-align: left;
+  font-weight: bold;
+}
+
+.checkOutTable th,
+.checkOutTable td {
+  padding: 12px 15px;
+}
+
+.checkOutTable tbody tr {
+  border-bottom: 1px solid var(--primary-200);
+}
+
+.checkOutTable tfoot {
+  color: #ffffff;
+  background-color: var(--primary-500);
+  border-bottom: 2px solid var(--primary-500);
+}
+
+.checkOutTable tfoot th {
+  text-align: right;
+}
+
+.checkOutTable tfoot button {
+  background: linear-gradient(45deg, #18181b, #27272a);
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkOutTable tfoot button:hover {
+  background: linear-gradient(45deg, #27272a, #3f3f46);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}

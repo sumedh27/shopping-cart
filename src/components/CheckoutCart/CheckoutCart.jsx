@@ -1,6 +1,8 @@
+import styles from "./checkoutCart.module.css";
+
 function CheckoutCart({ cartTotal }) {
   return (
-    <table>
+    <table className={styles.checkOutTable}>
       <thead>
         <tr>
           <th scope="row" colSpan="2">
@@ -24,9 +26,10 @@ function CheckoutCart({ cartTotal }) {
       </tbody>
       <tfoot>
         <tr>
-          <th scope="row" colSpan="2">
+          <td></td>
+          <td>
             <button>Check Out</button>
-          </th>
+          </td>
         </tr>
       </tfoot>
     </table>

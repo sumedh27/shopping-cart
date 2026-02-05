@@ -15,6 +15,8 @@ function Page(props) {
     deleteFromCart,
     decrementFromCart,
     resetCart,
+    filterItemsMethods,
+    handleFilterItems,
   } = props;
 
   return useRoutes([
@@ -28,6 +30,8 @@ function Page(props) {
           isLoading={isLoading}
           error={error}
           addToCart={addToCart}
+          filterItemsMethods={filterItemsMethods}
+          handleFilterItems={handleFilterItems}
         />
       ),
     },
