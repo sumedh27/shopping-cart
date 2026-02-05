@@ -11,6 +11,8 @@ export default function App() {
     methods: {
       search: "",
       category: "",
+      orderBy: "",
+      sortBy: "high",
     },
     prevMethod: {
       type: "search",
@@ -34,6 +36,10 @@ export default function App() {
 
       const anyValueChanged = isMethodChange || isValueChange;
       if (!anyValueChanged) return filterItems;
+
+      if (!type) {
+        return { ...filterItems, methods: { ...value } };
+      }
 
       return {
         ...filterItems,

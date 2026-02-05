@@ -116,15 +116,15 @@
   color: #18181b;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type="text"]::-webkit-inner-spin-button,
+input[type="text"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   margin: 0;
 }
 
-input[type="number"] {
+input[type="text"] {
   width: 48px;
   height: 91%;
   align-self: center;

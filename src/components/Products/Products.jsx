@@ -12,18 +12,71 @@ export default function Products(props) {
   } = props;
 
   const filteredProducts = useMemo(() => {
-    const { search } = filterItemsMethods;
-    if (!search?.trim()) return products;
+    const { search, category, orderBy, sortBy } = filterItemsMethods;
+
+    let copyProducts = [...products];
+
+    if (!search?.trim() && !category?.trim() && !orderBy?.trim())
+      return products;
 
     if (search) {
       const lowerCaseSearch = search.toLowerCase();
-
-      return products.filter((product) =>
+      copyProducts = copyProducts.filter((product) =>
         ["title", "category"].some((key) =>
           product[key]?.toLowerCase().includes(lowerCaseSearch),
         ),
       );
     }
+
+    if (category) {
+      const lowerCaseCategory = category.toLowerCase();
+
+      copyProducts = copyProducts.filter(
+        (product) => product.category.toLowerCase() === lowerCaseCategory,
+      );
+    }
+
+    if (orderBy) {
+      if (orderBy === "price" && sortBy === "high") {
+        copyProducts = copyProducts.sort((a, b) => b.price - a.price);
+      } else if (orderBy === "price" && sortBy === "low") {
+        copyProducts = copyProducts.sort((a, b) => a.price - b.price);
+      } else if (orderBy === "rating" && sortBy === "high") {
+        copyProducts = copyProducts.sort(
+          (a, b) => b.rating.rate - a.rating.rate,
+        );
+      } else if (orderBy === "rating" && sortBy === "low") {
+        copyProducts = copyProducts.sort(
+          (a, b) => a.rating.rate - b.rating.rate,
+        );
+      } else if (orderBy === "title" && sortBy === "low") {
+        copyProducts = copyProducts.sort((a, b) => {
+          const nameA = a.title[0].toLowerCase();
+          const nameB = b.title[0].toLowerCase();
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1;
+          }
+          return 0;
+        });
+      } else if (orderBy === "title" && sortBy === "high") {
+        copyProducts = copyProducts.sort((a, b) => {
+          const nameA = a.title[0].toLowerCase();
+          const nameB = b.title[0].toLowerCase();
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
+      }
+    }
+
+    return copyProducts;
   }, [products, filterItemsMethods]);
 
   const styles = {

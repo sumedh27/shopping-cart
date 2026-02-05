@@ -1,5 +1,6 @@
 import Products from "../components/Products/Products.jsx";
-import Search from "../components/Search/Search.jsx";
+import FilterOptions from "../components/FilterOptions/FilterOptions.jsx";
+import Search from "../components/FilterOptions/Search/Search.jsx";
 
 export default function Shop(props) {
   const {
@@ -13,9 +14,10 @@ export default function Shop(props) {
   } = props;
   return (
     <main>
-      <Search
+      <FilterOptions
         filterItemsMethods={filterItemsMethods}
         handleFilterItems={handleFilterItems}
+        products={products}
       />
       <Products
         handleAddToCart={handleAddToCart}

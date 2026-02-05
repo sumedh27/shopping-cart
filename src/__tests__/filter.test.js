@@ -10,6 +10,10 @@ function filterMethod(prev, { type, value }) {
   const anyValueChanged = isMethodChange || isValueChange;
   if (!anyValueChanged) return prev;
 
+  if (!type) {
+    return { ...prev, methods: { ...value } };
+  }
+
   return {
     ...prev,
     methods: {
@@ -47,5 +51,12 @@ describe("Filter State Change", () => {
     const input = filterMethod(prev, { type: "category", value: "shirts" });
     expect(input).not.toBe(prev);
     expect(input.methods.category).toBe("shirts");
+  });
+
+  test("reset", () => {
+    const reset = { search: "", category: "" };
+    const input = filterMethod(prev, { type: "", value: reset });
+
+    expect(input).toStrictEqual(prev);
   });
 });
