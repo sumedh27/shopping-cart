@@ -31,7 +31,7 @@ A modern shopping cart web application built to practice real-world frontend arc
 App runs on:  
 http://localhost:5173
 
-## 📋 TODO
+## TODO
 
 | Status | Task |
 |------|----|
