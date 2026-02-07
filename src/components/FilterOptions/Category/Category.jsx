@@ -1,28 +1,22 @@
+import Select from "react-select";
+
 export default function Category(props) {
   const { category, categoryOptions, handleFilterItems } = props;
+  const selectedCategory =
+    categoryOptions.find((opt) => opt.value === category) || null;
 
   return (
     <div>
       <label htmlFor="category">Category</label>
-      <select
+      <Select
         name="category"
-        id="category"
-        value={category}
-        onChange={(e) =>
-          handleFilterItems({ type: "category", value: e.target.value })
-        }
-      >
-        {!category ? (
-          <option value="default">Select Category</option>
-        ) : (
-          <option disabled value="default">
-            Select Category
-          </option>
-        )}
-        {categoryOptions.map((option, i) => (
-          <option key={i}>{option}</option>
-        ))}
-      </select>
+        value={selectedCategory}
+        options={categoryOptions}
+        placeholder="Select Category"
+        onChange={(e) => {
+          handleFilterItems({ type: "category", value: e.value });
+        }}
+      />
     </div>
   );
 }

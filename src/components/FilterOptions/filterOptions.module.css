@@ -1,0 +1,10 @@
+.filterContainer{
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    border: 2px solid black;
+    border-radius: 12px;
+}

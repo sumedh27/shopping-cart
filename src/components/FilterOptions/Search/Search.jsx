@@ -1,9 +1,11 @@
+import styles from "./search.module.css";
+
 export default function Search(props) {
   const { handleFilterItems, search } = props;
 
   return (
     <div>
-      <h3>Search</h3>
+      <label>Search</label>
       <input
         type="text"
         value={search}
