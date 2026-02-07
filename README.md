@@ -1,6 +1,6 @@
 # Shopping Cart Application
 
-A modern shopping cart web application built to practice real-world frontend architecture — component composition, state management, derived state, and UI performance.
+A modern shopping cart web application built to practice real world frontend architecture,component composition, state management, derived state, and UI performance.
 
 > Designed as a learning project focusing on how real e-commerce carts behave.
 > 
