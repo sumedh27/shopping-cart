@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "../../products.module.css";
+import Button from "../../Button/Button";
+import Icon from "../../Icon/Icon";
 
 export default function ProductBuy({ product, convertTo2, addToCart }) {
   const [value, setValue] = useState(1);
@@ -20,6 +22,15 @@ export default function ProductBuy({ product, convertTo2, addToCart }) {
     });
   };
 
+  const handleOnClickAdd = () => {
+    addToCart({ targetId: product.id, targetQuantity: value });
+    setValue(1);
+  };
+
+  const addToCartClass = `btn cartBtn addToCart icon`;
+  const incrementClass = `btn plus`;
+  const decrementClass = `btn minus`;
+
   return (
     <div className={styles.bottom}>
       <div className={styles.price}>
@@ -36,22 +47,18 @@ export default function ProductBuy({ product, convertTo2, addToCart }) {
           min="1"
         />
         <div className="styles userBtn">
-          <button
-            className={`${styles.plus} ${styles.btn}`}
-            type="button"
-            onClick={handleIncrement}
-          >
+          <Button className={incrementClass} onClick={handleIncrement}>
             +
-          </button>
-          <button
-            className={`${styles.minus} ${styles.btn}`}
-            type="button"
-            onClick={handleDecrement}
-          >
+          </Button>
+          <Button className={decrementClass} onClick={handleDecrement}>
             -
-          </button>
+          </Button>
         </div>
-        <button
+        <Button className={addToCartClass} onClick={handleOnClickAdd}>
+          <span>Add to Cart</span>
+          <Icon className="icon" />
+        </Button>
+        {/* <button
           className={`${styles.addToCart} ${styles.btn}`}
           type="button"
           onClick={() => {
@@ -73,7 +80,7 @@ export default function ProductBuy({ product, convertTo2, addToCart }) {
             <line x1="3" y1="6" x2="21" y2="6" />
             <path d="M16 10a4 4 0 01-8 0" />
           </svg>
-        </button>
+        </button> */}
       </form>
     </div>
   );

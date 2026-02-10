@@ -4,13 +4,13 @@
   top: 0;
   display: flex;
   padding: 0 1rem 0 0;
-  background-color: var(--bg-600);
+  background-color: var(--primary-600);
+  color: var(--primary-950);
 }
 
 .header h1 {
   margin: 0;
   font-size: clamp(1.7rem, 4vw, 3rem);
-  color: var(--primary-500);
   margin-left: auto;
   letter-spacing: 0.2rem;
   padding: 1rem 0;
@@ -44,17 +44,16 @@
 
 .navLinks a:hover {
   background-color: var(--primary-400);
-  color: #ffffff;
 }
 
 .navLinks a:active {
-  background-color: var(--primary-500);
-  color: #ffffff;
+  background-color: var(--primary-950);
+  color: var(--primary-400);
 }
 
 .navLinks a.active {
-  background-color: var(--primary-500);
-  color: #ffffff;
+  background-color: var(--primary-950);
+  color: var(--primary-400);
 }
 
 .navLinks li {
@@ -65,8 +64,7 @@
 
 @media (max-width: 1024px) {
   .header {
-      padding: 0 0.5rem 0 0 ;
-
+    padding: 0 0.5rem 0 0;
   }
 
   .navLinks a {
@@ -106,7 +104,7 @@
     margin-right: 0;
   }
 
-  .navLinks li{
+  .navLinks li {
     width: 100%;
   }
 

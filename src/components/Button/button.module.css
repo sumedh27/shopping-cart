@@ -1,0 +1,67 @@
+.btn {
+  background: var(--primary-700);
+  text-decoration: none;
+  color: var(--primary-100);
+  border: none;
+  border-radius: 10px;
+  padding: 16px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 6px;
+  transition: 0.3s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  background: var(--primary-900);
+}
+
+.cartBtn {
+  padding: 8px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 6px;
+}
+
+.icon {
+  transition: transform 0.3s;
+}
+
+.btn:hover .icon {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.addToCart {
+  margin-left: 10px;
+}
+
+.plus,
+.minus {
+  padding: 8px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  max-height: calc(40px / 2);
+}
+
+.plus {
+  border-radius: 0 10px 0 0;
+}
+
+.minus {
+  border-radius: 0 0 10px 0;
+}
