@@ -1,20 +1,12 @@
-.cartWrapper {
-  padding: 2rem;
+.cartMain {
   display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 50px 25px;
 }
 
-/*Tablet */
-
-@media screen and (max-width: 1024px) {
-  .cartWrapper {
+@media screen and (width < 768px) {
+  .cartMain {
     flex-direction: column;
-    align-items: center;
   }
-}
-
-/* Mobile */
-@media screen and (max-width: 768px) {
 }

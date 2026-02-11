@@ -2,37 +2,21 @@ import styles from "./checkoutCart.module.css";
 
 function CheckoutCart({ cartTotal }) {
   return (
-    <table className={styles.checkOutTable}>
-      <thead>
-        <tr>
-          <th scope="row" colSpan="2">
-            Estimated Cost
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Cost</th>
-          <td>Rs. {cartTotal}</td>
-        </tr>
-        <tr>
-          <th scope="row">Tax</th>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th scope="row">Total Cost</th>
-          <td>Rs. {cartTotal}</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td></td>
-          <td>
-            <button>Check Out</button>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+    <section className={styles.checkoutCart}>
+      <div>
+        <h4>Estimated Cost</h4>
+      </div>
+      <div>
+        <h3>
+          Cost <span>{cartTotal}</span>
+        </h3>
+      </div>
+      <div>
+        <h3>
+          Total <span>{cartTotal}</span>
+        </h3>
+      </div>
+    </section>
   );
 }
 

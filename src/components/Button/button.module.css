@@ -33,6 +33,14 @@
   gap: 6px;
 }
 
+.cartPageBtn {
+  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 6px;
+}
+
+
 .icon {
   transition: transform 0.3s;
 }
@@ -46,7 +54,9 @@
 }
 
 .plus,
-.minus {
+.minus,
+.leftMinus,
+.rightPlus {
   padding: 8px 15px;
   font-size: 13px;
   font-weight: 600;
@@ -64,4 +74,12 @@
 
 .minus {
   border-radius: 0 0 10px 0;
+}
+
+.rightPlus {
+  border-radius: 0 10px 10px 0;
+}
+
+.leftMinus {
+  border-radius: 10px 0 0 10px;
 }

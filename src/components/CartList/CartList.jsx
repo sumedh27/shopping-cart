@@ -14,7 +14,7 @@ export default function CartList(props) {
   const IteratedCartItem = cart.map((item, i) => {
     return (
       <CartItem
-        key={i}
+        key={item.id}
         itemNum={i + 1}
         quantity={item.quantity}
         cartItem={item}
@@ -26,7 +26,7 @@ export default function CartList(props) {
   });
 
   return (
-    <div className={styles.cartList}>
+    <section className={styles.cartList}>
       <div className={styles.cartHeader}>
         <h4>
           Cart <span className={styles.cartLen}>({cart.length} items)</span>
@@ -43,6 +43,6 @@ export default function CartList(props) {
           Reset Cart
         </button>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,91 +1,35 @@
 .cartList {
-  background-color: white;
-  width: 70dvw;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 50px 1fr 50px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border-radius: 5px 5px 0 0;
+  background: var(--primary-50);
+  display: flex;
+  flex-direction: column;
+   max-width: 800px;
 }
 
 .cartHeader {
-  grid-column: 1/4;
+  background: var(--primary-600);
+  color: var(--primary-950);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 75px;
 }
 
-.cartFooter {
-  grid-column: 1/4;
-}
-
-.cartMain {
-  grid-column: 1/4;
-}
-
-.cartHeader,
-.cartFooter {
-  background-color: var(--primary-500);
-  color: white;
-  align-self: center;
-}
-
-.cartHeader h4 {
+.cartHeader > h4 {
+  margin: 0;
+  padding: 0;
   margin-left: 2rem;
-  text-transform: uppercase;
+  font-size: 1.5rem;
 }
 
-.cartHeader .cartLen {
-  margin-left: 1ch;
-  font-weight: 100;
-  text-transform: lowercase;
+.cartHeader > h4 > .cartLen {
+  margin-left: 10px;
+  font-weight: 200;
+  font-family: inherit;
+  font-size: 1.2rem;
   font-style: italic;
 }
 
-.cartFooter {
-  display: grid;
-  grid-template-columns:
-    25px /* index */
-    70px /* image */
-    2.5fr /* title */
-    1fr /* quantity */
-    1fr /* price */
-    100px; /* remove button */
-  align-items: center;
-  justify-items: center;
-  gap: 12px;
-}
-
-.resetCartBtn {
-  grid-column: 6;
-  padding: 5px 8px;
-  border-radius: 8px;
-  font-family: inherit;
-  text-transform: uppercase;
-}
-
-.cartCostT {
-  grid-column: 4 / 5;
-}
-
-.cartCost {
-  grid-column: 5;
-  text-align: right;
-}
-
-.btn {
-  background: linear-gradient(45deg, #18181b, #27272a);
-  color: #fff;
-  border: none;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
+.cartMain {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: 0.3s;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn:hover {
-  background: linear-gradient(45deg, #27272a, #3f3f46);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
 }

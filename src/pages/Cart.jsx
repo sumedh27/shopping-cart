@@ -19,7 +19,7 @@ export default function Cart(props) {
   const cartTotal = getCartTotal(cart);
 
   return (
-    <main className={styles.cartWrapper}>
+    <main className={styles.cartMain}>
       {cart.length > 0 ? (
         <>
           <CartList
