@@ -1,6 +1,5 @@
 import Products from "../components/Products/Products.jsx";
 import FilterOptions from "../components/FilterOptions/FilterOptions.jsx";
-import Search from "../components/FilterOptions/Search/Search.jsx";
 
 export default function Shop(props) {
   const {
@@ -12,8 +11,14 @@ export default function Shop(props) {
     filterItemsMethods,
     handleFilterItems,
   } = props;
+
+  const style = {
+    display: "flex",
+    flexDirection: "column",
+  };
+
   return (
-    <main>
+    <main style={style}>
       <FilterOptions
         filterItemsMethods={filterItemsMethods}
         handleFilterItems={handleFilterItems}

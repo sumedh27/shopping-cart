@@ -1,6 +1,8 @@
+import removeDuplicates from "../../utils/removeDuplicates";
 import Category from "./Category/Category";
 import Search from "./Search/Search";
 import SortProducts from "./SortProducts/SortProducts";
+import styles from "./filterOptions.module.css";
 
 export default function FilterOptions(props) {
   const { filterItemsMethods, handleFilterItems, products } = props;
@@ -19,17 +21,18 @@ export default function FilterOptions(props) {
 
   const areFilterOptionsEmpty = () => !search && !category && !orderBy;
 
-  const categoryOptions = products.reduce((options, product) => {
-    const productCategory =
-      product.category.charAt(0).toUpperCase() + product.category.slice(1);
-    if (options.indexOf(productCategory) === -1) {
-      options.push(productCategory);
-    }
-    return options;
-  }, []);
+  const productCategories = removeDuplicates(
+    products.map((product) => product.category),
+  );
+
+  const categoryOptions = productCategories.map((option) => {
+    const optionLabel = option.charAt(0).toUpperCase() + option.slice(1);
+
+    return { label: optionLabel, value: option };
+  });
 
   return (
-    <div>
+    <div className={styles.filterContainer}>
       <Search search={search} handleFilterItems={handleFilterItems} />
       <Category
         category={category}

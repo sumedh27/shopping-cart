@@ -1,38 +1,30 @@
+import Button from "../Button/Button";
 import styles from "./checkoutCart.module.css";
 
 function CheckoutCart({ cartTotal }) {
   return (
-    <table className={styles.checkOutTable}>
-      <thead>
-        <tr>
-          <th scope="row" colSpan="2">
-            Estimated Cost
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Cost</th>
-          <td>Rs. {cartTotal}</td>
-        </tr>
-        <tr>
-          <th scope="row">Tax</th>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th scope="row">Total Cost</th>
-          <td>Rs. {cartTotal}</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td></td>
-          <td>
-            <button>Check Out</button>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+    <section className={styles.checkoutCart}>
+      <div>
+        <h4>Estimated Cost</h4>
+      </div>
+      <ul className={styles.checkoutList}>
+        <li>
+          <span>Subtotal</span>
+          <span>Rs.{cartTotal}</span>
+        </li>
+        <li>
+          <span>Shipping</span>
+          <span>Free</span>
+        </li>
+        <li className={styles.total}>
+          <span>Total amount (including taxes)</span>
+          <span>Rs.{cartTotal}</span>
+        </li>
+      </ul>
+      <Button disabled={true} className={`btn checkoutBtn`}>
+        Checkout
+      </Button>
+    </section>
   );
 }
 

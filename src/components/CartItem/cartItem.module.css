@@ -1,86 +1,55 @@
 .cartItemsWrapper {
-  display: grid;
-  grid-template-columns:
-    25px /* index */
-    70px /* image */
-    2.5fr /* title */
-    1fr /* quantity */
-    1fr /* price */
-    100px; /* remove button */
-
-  align-items: center;
-  gap: 12px;
-  padding: 1rem 0.5rem;
-  border-bottom: 1px solid #2b2b2b2b;
-}
-
-.cartChange {
   display: flex;
-  justify-content: center;
+  gap: 20px;
+  padding: 25px;
+  border-top: 1px solid var(--primary-200);
 }
 
-.btn {
-  background: linear-gradient(45deg, #18181b, #27272a);
-  color: #fff;
-  border: none;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: 0.3s;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn:hover {
-  background: linear-gradient(45deg, #27272a, #3f3f46);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-.inputBtn {
-  padding: 5px 10px;
-}
-
-.cartChange input[type="number"] {
-  padding: 5px 0;
-  border-radius: 0;
-}
-
-.decBtn {
-  border-radius: 8px 0 0 8px;
-}
-
-.incBtn {
-  border-radius: 0 8px 8px 0;
-}
-
-.removeFromBtn {
-  text-transform: uppercase;
-  font-family: inherit;
-  padding: 5px 8px;
-  border-radius: 8px;
-}
-
-.itemImage {
-  height: 70px;
-  width: 70px;
+.itemImage > img {
+  width: 150px;
+  height: 150px;
   object-fit: contain;
 }
 
-.cartSrNo {
-  text-align: center;
-  font-weight: 600;
-}
-
-.cartTitle {
-  text-align: left;
-  line-height: 1.4;
-}
-
-.cartQty,
-.cartPrice {
+.productDetails {
+  flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.productTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+}
+
+.productTop > div > p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.productTop > div > small {
+  font-weight: 100;
+}
+
+.productChange {
+  display: flex;
+}
+
+.productChange > input[type="number"] {
+  text-align: center;
+  width: 50px;
+}
+
+.productBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productBottom .cartPrice{
+  margin: 0;
+  font-weight: 600;
 }

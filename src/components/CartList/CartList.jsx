@@ -11,11 +11,10 @@ export default function CartList(props) {
     cartTotal,
   } = props;
 
-  const IteratedCartItem = cart.map((item, i) => {
+  const IteratedCartItem = cart.map((item) => {
     return (
       <CartItem
-        key={i}
-        itemNum={i + 1}
+        key={item.id}
         quantity={item.quantity}
         cartItem={item}
         deleteFromCart={deleteFromCart}
@@ -25,24 +24,22 @@ export default function CartList(props) {
     );
   });
 
+  const handleResetCart = (e) => {
+    e.preventDefault();
+    resetCart();
+  };
+
   return (
-    <div className={styles.cartList}>
+    <section className={styles.cartList}>
       <div className={styles.cartHeader}>
         <h4>
           Cart <span className={styles.cartLen}>({cart.length} items)</span>
         </h4>
+        <a href="" onClick={handleResetCart}>
+          Reset Cart
+        </a>
       </div>
       <div className={styles.cartMain}>{IteratedCartItem}</div>
-      <div className={styles.cartFooter}>
-        <h4 className={styles.cartCostT}>Total</h4>
-        <p className={styles.cartCost}>Rs.{cartTotal}</p>
-        <button
-          className={`${styles.resetCartBtn} ${styles.btn}`}
-          onClick={() => resetCart()}
-        >
-          Reset Cart
-        </button>
-      </div>
-    </div>
+    </section>
   );
 }
