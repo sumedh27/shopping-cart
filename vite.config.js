@@ -10,6 +10,7 @@ export default defineConfig({
       },
     }),
   ],
+  base: "/shopping-cart/",
   test: {
     environment: "jsdom",
     globals: true,
