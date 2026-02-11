@@ -26,6 +26,14 @@
   background: var(--primary-900);
 }
 
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
 .cartBtn {
   padding: 8px 15px;
   font-size: 13px;
@@ -39,7 +47,6 @@
   font-weight: 600;
   gap: 6px;
 }
-
 
 .icon {
   transition: transform 0.3s;
@@ -82,4 +89,8 @@
 
 .leftMinus {
   border-radius: 10px 0 0 10px;
+}
+
+.checkoutBtn {
+  margin-left: auto;
 }

@@ -1,6 +1,25 @@
 .checkoutCart {
   background-color: white;
+  padding: 25px;
+  border-radius: 10px;
   height: fit-content;
-  width: 200px;
-  grid-column: 2/3;
+}
+
+.checkoutList {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.checkoutList li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  gap: 10px;
+}
+
+.checkoutList .total {
+  font-weight: bold;
+  border-bottom: none;
+  margin-top: 10px;
 }

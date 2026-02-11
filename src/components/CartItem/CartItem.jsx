@@ -2,14 +2,8 @@ import Button from "../Button/Button";
 import styles from "./cartItem.module.css";
 
 export default function CartItem(props) {
-  const {
-    itemNum,
-    quantity,
-    cartItem,
-    deleteFromCart,
-    decrementFromCart,
-    addToCart,
-  } = props;
+  const { quantity, cartItem, deleteFromCart, decrementFromCart, addToCart } =
+    props;
 
   const convertTo2 = +(cartItem.price * 90).toFixed(2);
 
@@ -59,7 +53,7 @@ export default function CartItem(props) {
             Remove From Cart
           </Button>
           <h4 className={styles.cartPrice}>
-            Rs.{convertTo2 * cartItem.quantity}
+            Rs.{(convertTo2 * cartItem.quantity).toFixed(2)}
           </h4>
         </div>
       </div>

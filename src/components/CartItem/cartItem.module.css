@@ -6,8 +6,8 @@
 }
 
 .itemImage > img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
 }
 
@@ -47,4 +47,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.productBottom .cartPrice{
+  margin: 0;
+  font-weight: 600;
 }
