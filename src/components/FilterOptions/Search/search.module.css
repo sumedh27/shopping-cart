@@ -1,3 +1,26 @@
-input[type="text"]{
-    
+.searchContainer {
+  display: flex;
+  flex-direction: column;
 }
+
+.searchContainer > input[type="text"] {
+  font-size: 14px;
+  font-weight: 300;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+
+.searchContainer > input[type="text"]:focus {
+  border: 1px solid var(--primary-500);
+}
+
+.searchContainer > input[type="text"]::-webkit-inner-spin-button,
+.searchContainer > input[type="text"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+

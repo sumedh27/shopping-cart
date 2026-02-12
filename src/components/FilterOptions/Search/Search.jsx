@@ -4,7 +4,7 @@ export default function Search(props) {
   const { handleFilterItems, search } = props;
 
   return (
-    <div>
+    <div className={styles.searchContainer}>
       <label>Search</label>
       <input
         type="text"

@@ -1,4 +1,5 @@
 import removeDuplicates from "../../utils/removeDuplicates";
+import Button from "../Button/Button";
 import Category from "./Category/Category";
 import Search from "./Search/Search";
 import SortProducts from "./SortProducts/SortProducts";
@@ -45,9 +46,12 @@ export default function FilterOptions(props) {
         handleFilterItems={handleFilterItems}
       />
       {
-        <button onClick={resetFilter} disabled={areFilterOptionsEmpty()}>
+        <Button className={`btn resetBtn`} onClick={resetFilter} disabled={areFilterOptionsEmpty()}>
           Reset
-        </button>
+        </Button>
+        // <button onClick={resetFilter} disabled={areFilterOptionsEmpty()}>
+        //   Reset
+        // </button>
       }
     </div>
   );

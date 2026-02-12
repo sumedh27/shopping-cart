@@ -1,4 +1,5 @@
 import Select from "react-select";
+import styles from "./category.module.css";
 
 export default function Category(props) {
   const { category, categoryOptions, handleFilterItems } = props;
@@ -6,7 +7,7 @@ export default function Category(props) {
     categoryOptions.find((opt) => opt.value === category) || null;
 
   return (
-    <div>
+    <div className={styles.categoryContainer}>
       <label htmlFor="category">Category</label>
       <Select
         name="category"
