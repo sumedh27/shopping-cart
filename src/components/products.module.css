@@ -116,15 +116,15 @@
   color: #18181b;
 }
 
-input[type="text"]::-webkit-inner-spin-button,
-input[type="text"]::-webkit-outer-spin-button {
+.user > input[type="text"]::-webkit-inner-spin-button,
+.user > input[type="text"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   margin: 0;
 }
 
-input[type="text"] {
+.user > input[type="text"] {
   width: 48px;
   height: 91%;
   align-self: center;

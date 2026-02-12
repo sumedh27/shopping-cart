@@ -94,3 +94,10 @@
 .checkoutBtn {
   margin-left: auto;
 }
+
+.resetBtn{
+  width: 150px;
+  height: 40px;
+  justify-content: center;
+  margin-top: 22px;
+}
